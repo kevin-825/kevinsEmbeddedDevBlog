@@ -1,0 +1,17 @@
+site_name: Kevin's Embedded Dev Blog
+site_description: Deep dives into RISC-V, ARM, and Linux Kernel Internals
+theme:
+  name: material
+  palette:
+    primary: deep purple
+    accent: teal
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - content.code.copy
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.details
+  - admonition
