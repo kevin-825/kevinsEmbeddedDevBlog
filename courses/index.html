@@ -1,0 +1,796 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Deep dives into RISC-V, ARM, and Linux Kernel Internals">
+      
+      
+      
+      
+        <link rel="prev" href="../arch/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Official Embedded Learning Resources - Kevin's Embedded Dev Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#official-embedded-learning-resources" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Kevin&#39;s Embedded Dev Blog" class="md-header__button md-logo" aria-label="Kevin's Embedded Dev Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kevin's Embedded Dev Blog
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Official Embedded Learning Resources
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Welcome to Kevin's Embedded Dev Blog
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../arch/" class="md-tabs__link">
+          
+  
+  
+  Arch
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Kevin&#39;s Embedded Dev Blog" class="md-nav__button md-logo" aria-label="Kevin's Embedded Dev Blog" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Kevin's Embedded Dev Blog
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to Kevin's Embedded Dev Blog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arch
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CPU Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Courses
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Courses
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Official Embedded Learning Resources
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Official Embedded Learning Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arm-architecture-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 ARM Architecture &amp; Development
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risc-v-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔵 RISC-V Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-kernel-embedded-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🐧 Linux Kernel &amp; Embedded Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🐧 Linux Kernel &amp; Embedded Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-linux-tools-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Linux Tools &amp; Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-kernel-internals-device-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Kernel Internals &amp; Device Drivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arm-architecture-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🟢 ARM Architecture &amp; Development
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#risc-v-architecture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔵 RISC-V Architecture
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-kernel-embedded-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🐧 Linux Kernel &amp; Embedded Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🐧 Linux Kernel &amp; Embedded Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phase-1-linux-tools-foundations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Linux Tools &amp; Foundations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#phase-2-kernel-internals-device-drivers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Kernel Internals &amp; Device Drivers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="official-embedded-learning-resources">Official Embedded Learning Resources</h1>
+<p>Welcome to the Course Directory. This page contains the core curriculum that has supported my career growth in the Embedded SoC industry. </p>
+<p>Over the years, I have relied on these specific, official resources to master low-level architecture, embedded software, and Linux kernel development. Because these come directly from official organizations like ARM and the Linux Foundation, the content is authoritative, reliable, and strictly tied to industry standards.</p>
+<div class="admonition tip">
+<p class="admonition-title">The AI Advantage</p>
+<p>Many of the advanced courses listed below (like LFD450) are traditionally instructor-led and can cost upwards of $3,500. However, with the rise of Generative AI, you no longer need to pay corporate training prices. By following these official curriculums and using AI as your personal tutor to explain complex concepts, you can master enterprise-level embedded development at practically zero cost.</p>
+</div>
+<hr />
+<h2 id="arm-architecture-development">🟢 ARM Architecture &amp; Development</h2>
+<p><em>Provided via the official Arm Education Coursera Specialization.</em></p>
+<p>This track contains everything you need to master the Cortex-M microcontrollers and ARM embedded software development. </p>
+<ul>
+<li><strong><a href="https://www.coursera.org/specializations/cortex-m-architecture-and-software-development">Arm Cortex-M Architecture and Software Development Specialization</a></strong></li>
+<li><strong><em>Course 1:</em></strong> <a href="https://www.coursera.org/learn/arm-cortex-m-processors-overview-course1?specialization=cortex-m-architecture-and-software-development">Arm Cortex-M Processors Overview</a></li>
+<li><strong><em>Course 2:</em></strong> <a href="https://www.coursera.org/learn/armv8-m-architecture-fundamentals?specialization=cortex-m-architecture-and-software-development">Armv8-M Architecture Fundamentals</a></li>
+<li><strong><em>Course 3:</em></strong> <a href="https://www.coursera.org/learn/cortex-m-software-development-fundamentals?specialization=cortex-m-architecture-and-software-development">Cortex-M Software Development Fundamentals</a></li>
+<li>
+<p><strong><em>Course 4:</em></strong> <a href="https://www.coursera.org/learn/advanced-armv8-m-features?specialization=cortex-m-architecture-and-software-development">Advanced Armv8-M Features</a></p>
+</li>
+<li>
+<p>**<a href="https://www.coursera.org/learn/arm-amba-axi-protocols-overview">Arm AMBA AXI Protocols Overview</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="risc-v-architecture">🔵 RISC-V Architecture</h2>
+<p><em>Provided via The Linux Foundation.</em></p>
+<p>RISC-V is rapidly changing the silicon landscape. These foundational courses are essential for understanding the open-standard instruction set architecture (ISA) and RISC-V embedded development.</p>
+<ul>
+<li><strong><a href="https://training.linuxfoundation.org/training/introduction-to-riscv/">LFD110: Introduction to RISC-V</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/foundations-of-risc-v-assembly-programming">LFD117x: Foundations of RISC-V Assembly Programming</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/riscv-fundamentals">LFD210: RISC-V Fundamentals</a></strong></li>
+</ul>
+<hr />
+<h2 id="linux-kernel-embedded-development">🐧 Linux Kernel &amp; Embedded Development</h2>
+<p><em>Provided via The Linux Foundation.</em></p>
+<p>These are the most highly practical courses for transitioning from a general programmer to a Linux kernel hacker and device driver developer. I have broken them down into foundational tools and advanced internals.</p>
+<h3 id="phase-1-linux-tools-foundations">Phase 1: Linux Tools &amp; Foundations</h3>
+<p>If you are just starting to work or play with Linux as a developer, begin here to build a rock-solid foundation.</p>
+<ul>
+<li><strong><a href="https://training.linuxfoundation.org/training/introduction-to-linux/">LFS101: Introduction to Linux</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/open-source-software-development-linux-for-developers/">LFD107x: Open Source Software Development: Linux for Developers</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/linux-tools-for-software-development/">LFD108x: Linux Tools for Software Development</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/a-beginners-guide-to-linux-kernel-development/">LFD103: A Beginner’s Guide to Linux Kernel Development</a></strong></li>
+</ul>
+<h3 id="phase-2-kernel-internals-device-drivers">Phase 2: Kernel Internals &amp; Device Drivers</h3>
+<p>This is the heavy-hitting, enterprise-level curriculum. These courses cover the deep internals of the kernel memory, concurrency, and how to write custom modules for hardware.</p>
+<ul>
+<li><strong><a href="https://training.linuxfoundation.org/training/linux-kernel-internals-and-development/">Linux Kernel Internals and Development (LFD420)</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/developing-linux-device-drivers/">Developing Linux Device Drivers (LFD430)</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/developing-embedded-linux-device-drivers/">Developing Embedded Linux Device Drivers (LFD435)</a></strong></li>
+<li><strong><a href="https://training.linuxfoundation.org/training/embedded-linux-development/">Embedded Linux Development (LFD450)</a></strong></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
