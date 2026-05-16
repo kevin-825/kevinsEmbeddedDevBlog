@@ -29,9 +29,9 @@ This track contains everything you need to master the Cortex-M microcontrollers 
 
 RISC-V is rapidly changing the silicon landscape. These foundational courses are essential for understanding the open-standard instruction set architecture (ISA) and RISC-V embedded development.
 
-*   **[LFD110: Introduction to RISC-V](https://training.linuxfoundation.org/training/introduction-to-riscv-lfd110/)**
-*   **[LFD117x: Foundations of RISC-V Assembly Programming](https://training.linuxfoundation.org/training/foundations-of-risc-v-assembly-programming-lfd117x/#)**
-*   **[LFD210: RISC-V Fundamentals](https://training.linuxfoundation.org/training/riscv-fundamentals-lfd210/#)**
+*   **[LFD110: Introduction to RISC-V](https://training.linuxfoundation.org/training/introduction-to-riscv/)**
+*   **[LFD117x: Foundations of RISC-V Assembly Programming](https://training.linuxfoundation.org/training/foundations-of-risc-v-assembly-programming)**
+*   **[LFD210: RISC-V Fundamentals](https://training.linuxfoundation.org/training/riscv-fundamentals)**
 
 ---
 
@@ -43,15 +43,15 @@ These are the most highly practical courses for transitioning from a general pro
 ### Phase 1: Linux Tools & Foundations
 If you are just starting to work or play with Linux as a developer, begin here to build a rock-solid foundation.
 
-*   **[LFS101: Introduction to Linux](https://training.linuxfoundation.org/training/introduction-to-riscv-lfd110/)**
+*   **[LFS101: Introduction to Linux](https://training.linuxfoundation.org/training/introduction-to-linux/)**
 *   **[LFD107x: Open Source Software Development: Linux for Developers](https://training.linuxfoundation.org/training/open-source-software-development-linux-for-developers/)**
-*   **[LFD108x: Linux Tools for Software Development](https://training.linuxfoundation.org/training/linux-tools-for-software-development-lfd108/)**
-*   **[LFD103: A Beginner’s Guide to Linux Kernel Development](https://training.linuxfoundation.org/training/a-beginners-guide-to-linux-kernel-development-lfd103/)**
+*   **[LFD108x: Linux Tools for Software Development](https://training.linuxfoundation.org/training/linux-tools-for-software-development/)**
+*   **[LFD103: A Beginner’s Guide to Linux Kernel Development](https://training.linuxfoundation.org/training/a-beginners-guide-to-linux-kernel-development/)**
 
 ### Phase 2: Kernel Internals & Device Drivers
 This is the heavy-hitting, enterprise-level curriculum. These courses cover the deep internals of the kernel memory, concurrency, and how to write custom modules for hardware.
 
-*   **[LFD420: Linux Kernel Internals and Development](https://training.linuxfoundation.org/training/linux-kernel-internals-and-development/)**
-*   **[LFD430: Developing Linux Device Drivers](https://training.linuxfoundation.org/training/developing-linux-device-drivers/)**
-*   **[LFD435: Developing Embedded Linux Device Drivers](https://training.linuxfoundation.org/training/developing-embedded-linux-device-drivers/)**
-*   **[LFD450: Embedded Linux Development](https://training.linuxfoundation.org/training/embedded-linux-development/)**
+*   **[Linux Kernel Internals and Development (LFD420)](https://training.linuxfoundation.org/training/linux-kernel-internals-and-development/)**
+*   **[Developing Linux Device Drivers (LFD430)](https://training.linuxfoundation.org/training/developing-linux-device-drivers/)**
+*   **[Developing Embedded Linux Device Drivers (LFD435)](https://training.linuxfoundation.org/training/developing-embedded-linux-device-drivers/)**
+*   **[Embedded Linux Development (LFD450)](https://training.linuxfoundation.org/training/embedded-linux-development/)**
