@@ -51,7 +51,7 @@ If you are just starting to work or play with Linux as a developer, begin here t
 ### Phase 2: Kernel Internals & Device Drivers
 This is the heavy-hitting, enterprise-level curriculum. These courses cover the deep internals of the kernel memory, concurrency, and how to write custom modules for hardware.
 
-*   **[LFD420: Linux Kernel Internals and Development](https://training.linuxfoundation.org/training/linux-kernel-internals-and-development-lfd420/)**
-*   **[LFD430: Developing Linux Device Drivers](https://training.linuxfoundation.org/training/developing-linux-device-drivers-lfd430/)**
-*   **[LFD435: Developing Embedded Linux Device Drivers](https://training.linuxfoundation.org/training/developing-embedded-linux-device-drivers-lfd435/)**
-*   **[LFD450: Embedded Linux Development](https://training.linuxfoundation.org/training/embedded-linux-development-lfd450/)** *(Instructor-led)*
+*   **[LFD420: Linux Kernel Internals and Development](https://training.linuxfoundation.org/training/linux-kernel-internals-and-development/)**
+*   **[LFD430: Developing Linux Device Drivers](https://training.linuxfoundation.org/training/developing-linux-device-drivers/)**
+*   **[LFD435: Developing Embedded Linux Device Drivers](https://training.linuxfoundation.org/training/developing-embedded-linux-device-drivers/)**
+*   **[LFD450: Embedded Linux Development](https://training.linuxfoundation.org/training/embedded-linux-development/)**
